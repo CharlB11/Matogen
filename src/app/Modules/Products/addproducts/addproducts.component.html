@@ -1,0 +1,46 @@
+<div class="container">
+    <h2>Add Product</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      
+      <!-- Product Category Dropdown -->
+      <div class="form-group">
+        <label for="productCategory">Product Category:</label>
+        <select id="productCategory" formControlName="productCategory" class="form-control">
+          <option value="">Select a Category</option>
+          <option *ngFor="let category of productCategories" [value]="category">{{ category }}</option>
+        </select>
+      </div>
+      
+      <!-- Dynamic Product Name Dropdown -->
+      <div class="form-group">
+        <label for="productName">Product Name:</label>
+        <select id="productName" formControlName="productName" class="form-control">
+          <option value="">Select a Product</option>
+          <option *ngFor="let product of currentProducts" [value]="product">{{ product }}</option>
+        </select>
+      </div>
+      
+      <!-- Product Quantity Input -->
+      <div class="form-group">
+        <label for="productQuantity">Product Quantity:</label>
+        <input type="number" id="productQuantity" formControlName="productQuantity" class="form-control" min="1">
+      </div>
+      
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+    
+    <!-- List of All Products -->
+    <h3 class="mt-4">Product List</h3>
+    <div *ngIf="allProducts.length; else noProductsTemplate">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let product of allProducts">
+          {{ product.name }} - Quantity: {{ product.quantity }}
+        </li>
+      </ul>
+    </div>
+    <ng-template #noProductsTemplate>
+      <p>No products found.</p>
+    </ng-template>
+  </div>
+  

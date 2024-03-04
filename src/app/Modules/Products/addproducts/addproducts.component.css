@@ -1,0 +1,82 @@
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #162328; 
+    color: #3FC060; 
+    font-weight: bold;
+
+}
+
+.container {
+    overflow: auto;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 50px;
+    background-color: #3FC060; 
+    color: #162328; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    font-weight: bold;
+}
+
+h2 {
+    font-family: 'Arial Black', Gadget, sans-serif;
+    color: #162328; 
+    font-weight: bold;
+    
+}
+
+.form-group label {
+    color: #162328; 
+    font-weight: bold;
+}
+
+.form-group select, .form-group input {
+    border-radius: 4px;
+    color: #162328; /* Text color for input and select */
+    background-color: #ffffff; /* Background color for input and select */
+}
+
+.btn-primary {
+    background-color: #162328;
+    border-color: #3FC060;
+    color: #3FC060;
+    font-weight: bold;
+
+}
+
+.btn-primary:hover {
+    background-color: #ffffff;
+    color: #162328;
+}
+h3.mt-4 {
+    color: #162328; 
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 20px; /* Add some space below the heading */
+    font-weight: bold;
+
+  }
+/* Product list container styling */
+.list-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Creates a responsive number of columns */
+    grid-gap: 1rem; /* Space between items */
+    list-style: none; /* Removes default list styling */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin to align with the container */
+    font-weight: bold;
+}
+
+.list-group-item {
+    background-color: #f8f8f8;
+    color: #162328;
+    border: 1px solid #3FC060;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80px; /* Fixed height for all items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}

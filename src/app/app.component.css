@@ -1,0 +1,6 @@
+#app-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative; /* Allows absolute positioning inside */
+    overflow: hidden; /* Prevents any overflow from the moving element */
+  }

@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="homepage">Warehouse</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Dropdown for logged in user's username -->
+        <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async"
+        (mouseenter)="toggleDropdown(true)" (mouseleave)="toggleDropdown(false)">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+         [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'"
+         aria-haspopup="true" routerLink="profile">
+        <span *ngIf="userName$ | async as userName">Hello, {{ userName }}</span>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" [class.show]="dropdownOpen">
+        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+      </ul>
+    </li>
+        
+        <!-- Admin button visible only to users with 'admin' role -->
+        <li class="nav-item" *ngIf="role$ | async as role">
+          <a *ngIf="role === 'admin'" class="nav-link" routerLink="admin" routerLinkActive="active-link">Admin</a>
+        </li>
+        
+        <!-- Add Products button visible only when logged in -->
+        <li class="nav-item" *ngIf="isLoggedIn$ | async">
+          <a class="nav-link" routerLink="addproducts" routerLinkActive="active-link">Add Products</a>
+        </li>
+
+        <!-- Login, Register, Homepage, and All Products are visible only when logged out -->
+        <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+          <a class="nav-link" routerLink="login" routerLinkActive="active-link">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+          <a class="nav-link" routerLink="register" routerLinkActive="active-link">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="homepage" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">Homepage</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="allproducts" routerLinkActive="active-link">All Products</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

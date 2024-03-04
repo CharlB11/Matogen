@@ -1,0 +1,101 @@
+.admin-table-container {
+  width: 50%; /* Adjusted to your preference */
+  height: 300px; /* Or any other height you prefer */
+  overflow-y: auto;
+  margin: auto;
+  border: 1px solid #ccc; /* Optional: for better visibility */
+  box-shadow: 0 2px 4px rgba(0,0,0,.1); 
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Ensures borders are neat */
+}
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #3FC060; 
+  z-index: 1; /* Ensures the header is above other content */
+}
+
+.table th, .table td {
+  padding: 8px; /* Adjust padding as needed */
+  text-align: left; /* Aligns text to the left */
+  border-bottom: 1px solid #ddd; /* Adds a light border to the bottom of each cell */
+  color: #162328; 
+  background-color: #ffffff; 
+}
+
+/* Enhances the look on hover by using a lighter shade or different color */
+.table tr:hover {
+  background-color: #2a3b3f; /* Slightly lighter than the secondary color for a subtle effect */
+}
+
+
+.header-delete-button {
+  background-color: transparent;
+  border: none;
+  color: currentColor; /* Inherit color from the parent element */
+  cursor: pointer;
+  padding: 0;
+  font-weight: bold;
+}
+
+.header-delete-button:hover {
+  color: red; /* Change text color to red on hover */
+}
+
+
+/* For Webkit (Chrome, Safari, etc.) */
+.admin-table-container::-webkit-scrollbar {
+  width: 10px; /* Adjust the width of the scrollbar */
+}
+
+.admin-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light background for the track */
+}
+
+.admin-table-container::-webkit-scrollbar-thumb {
+  background: #3FC060; /* Your primary color for the scrollbar thumb */
+  border-radius: 5px; /* Optional: Rounds the corners of the scrollbar thumb */
+}
+
+.admin-table-container::-webkit-scrollbar-thumb:hover {
+  background: #2eb84f; /* Slightly darker shade of green for hover effect */
+}
+
+/* For Firefox */
+.admin-table-container {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: #3FC060 #f1f1f1; /* Thumb and track color */
+}
+
+/* For IE and Edge */
+.admin-table-container {
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* Optional: Improves scrolling in IE/Edge */
+}
+/* Add some spacing at the bottom of the table */
+.product-table {
+  margin-bottom: 20px; /* Adjust the size of the gap as needed */
+}
+
+
+.gap {
+  height: 70px;
+}
+
+/* Ensure that the chart fills the container properly */
+.product-chart {
+  width: 100%;
+  height: 100px;
+  
+}
+
+.chart-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  width: 100%; 
+  height: 400px; 
+  padding: 20px;
+}

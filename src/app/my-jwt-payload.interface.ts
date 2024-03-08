@@ -1,8 +1,9 @@
 export interface MyJwtPayload {
-    exp: number;
-    data: any;
-    userId: number; 
+  exp: number;
+  data: {
+    id: number;
     email: string;
     role: string;
-    name: string; 
-  }
+    name: string;
+  };
+}

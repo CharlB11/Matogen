@@ -15,4 +15,8 @@ export class ProductMessageService {
   showProductDeleted(): void {
     this.toastr.success('Product successfully deleted');
   }
+
+  showDuplicateEmail(): void {
+    this.toastr.error('Email already exists. Please choose a different email.');
+  }
 }

@@ -101,6 +101,18 @@ class UserService {
     $newEmail = $data->email;
     $newName = $data->name;
 
+    $sql = "SELECT COUNT(*) FROM users WHERE email = :email AND id != :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue(':email', $newEmail, PDO::PARAM_STR);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $count = $stmt->fetchColumn();
+
+    if ($count > 0) {
+        echo json_encode(['status' => 'error', 'message' => 'Email already exists']);
+        return;
+    }
+
     $sql = "SELECT role FROM users WHERE id = :id";
     $stmt = $this->db->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);

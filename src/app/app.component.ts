@@ -1,11 +1,10 @@
-import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { AuthService } from './auth.service';
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   title = 'warehouse';
@@ -13,26 +12,9 @@ export class AppComponent implements OnInit {
   constructor(private authService: AuthService, private el: ElementRef) {}
 
   ngOnInit() {
-    this.checkTokenExpirationAndLogout();
     this.createMouseFollower();
-
   }
 
-  checkTokenExpirationAndLogout() {
-    // Check token expiration on app start
-    const token = localStorage.getItem('currentUserToken');
-    if (token && this.authService.isTokenExpired(token)) {
-      this.authService.logout(); 
-    }
-
-    // Set up an interval for periodic checks
-    setInterval(() => {
-      const token = localStorage.getItem('currentUserToken');
-      if (token && this.authService.isTokenExpired(token)) {
-        this.authService.logout();
-      }
-    }, 60000); // Check every 60 seconds as an example
-  }
   createMouseFollower() {
     const follower = document.createElement('div');
     follower.style.position = 'absolute';

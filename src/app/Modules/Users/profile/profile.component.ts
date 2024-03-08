@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth.service'; 
 import { UserService } from 'C:/xampp/htdocs/warehouse/src/user.service';
 import { Observable } from 'rxjs';
+import { ProductMessageService } from 'C:/xampp/htdocs/warehouse/src/app/product-message.service';
 
 @Component({
   selector: 'app-profile',
@@ -18,11 +19,12 @@ export class ProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private productMessageService: ProductMessageService
   ) {
   
-    this.currentName$ = this.authService.getUserName();
-    this.currentEmail$ = this.authService.getUserEmail(); 
+    this.currentName$ = this.authService.currentName$;
+    this.currentEmail$ = this.authService.currentEmail$; 
   }
 
   ngOnInit() {
@@ -34,37 +36,43 @@ export class ProfileComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
     });
-  }
 
-onSubmit() {
-  if (this.profileForm.valid) {
-    const userId = this.authService.getCurrentUserId();
-    if (!userId) {
-      console.error('User ID is not available for profile update.');
-      return;
-    }
+    // Subscribe to currentName$ and currentEmail$ to populate the form
+    this.currentName$.subscribe(name => {
+      this.profileForm.patchValue({ name });
+    });
 
-    const updateData = { id: userId, ...this.profileForm.value };
-    this.userService.updateUserProfile(updateData).subscribe({
-      next: (responseText: string) => {
-        const response = JSON.parse(responseText);
-        if (response.status === 'success') {
-          console.log('Profile updated successfully', response);
-          // Update user details in AuthService
-          this.authService.updateUserNameAndEmail(this.profileForm.value.name, this.profileForm.value.email);
-          
-          if (response.newToken) {
-            this.authService.updateLocalJWT(response.newToken);
-          }
-          window.location.reload();
-        } else {
-          console.error('Failed to update profile:', response.message);
-        }
-      },
-      error: (error) => {
-        console.error('Error updating profile:', error);
-      }
+    this.currentEmail$.subscribe(email => {
+      this.profileForm.patchValue({ email });
     });
   }
-}
+
+  onSubmit() {
+    if (this.profileForm.valid) {
+      const userId = this.authService.getCurrentUserId();
+      if (!userId) {
+        console.error('User ID is not available for profile update.');
+        return;
+      }
+
+      const updateData = { id: userId, ...this.profileForm.value };
+      this.userService.updateUserProfile(updateData).subscribe({
+        next: (responseText: string) => {
+          const response = JSON.parse(responseText);
+          if (response.status === 'success') {
+            console.log('Profile updated successfully', response);
+            
+            if (response.newToken) {
+              this.authService.updateLocalJWT(response.newToken);
+            }
+          } else {
+            this.productMessageService.showDuplicateEmail();
+          }
+        },
+        error: (error) => {
+          console.error('Error updating profile:', error);
+        }
+      });
+    }
+  }
 }

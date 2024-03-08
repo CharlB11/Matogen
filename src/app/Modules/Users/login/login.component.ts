@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         
             this.router.navigate(['/profile']).then(() => {
             
-              window.location.reload();
+             
             });
 
           } else {

@@ -8,16 +8,16 @@
       <ul class="navbar-nav ms-auto">
         <!-- Dropdown for logged in user's username -->
         <li class="nav-item dropdown" *ngIf="isLoggedIn$ | async"
-        (mouseenter)="toggleDropdown(true)" (mouseleave)="toggleDropdown(false)">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-         [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'"
-         aria-haspopup="true" routerLink="profile">
-        <span *ngIf="userName$ | async as userName">Hello, {{ userName }}</span>
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" [class.show]="dropdownOpen">
-        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
-      </ul>
-    </li>
+            (mouseenter)="toggleDropdown(true)" (mouseleave)="toggleDropdown(false)">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+             [attr.aria-expanded]="dropdownOpen ? 'true' : 'false'"
+             aria-haspopup="true" routerLink="profile">
+            <span *ngIf="userName$ | async as userName">Hello, {{ userName }}</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" [class.show]="dropdownOpen">
+            <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+          </ul>
+        </li>
         
         <!-- Admin button visible only to users with 'admin' role -->
         <li class="nav-item" *ngIf="role$ | async as role">

@@ -18,9 +18,10 @@ userName: any;
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
+    
     this.isLoggedIn$ = this.authService.isLoggedIn$;
-    this.userName$ = this.authService.getUserName(); 
-    this.role$ = this.authService.getUserRole();
+    this.userName$ = this.authService.currentName$;
+    this.role$ = this.authService.currentRole$;
   }
   toggleDropdown(open: boolean): void {
     this.dropdownOpen = open;

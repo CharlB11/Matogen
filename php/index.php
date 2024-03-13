@@ -8,8 +8,9 @@ header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
 header('Cache-Control: post-check=0, pre-check=0', false);
 header('Pragma: no-cache');
 
-require_once 'C:/xampp/htdocs/warehouse/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 require_once 'UserService.php';
+require_once 'ProductService.php';
 require_once 'AuthMiddleware.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
@@ -20,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 $authMiddleware = new AuthMiddleware();
 $data = json_decode(file_get_contents("php://input"));
 $userService = new UserService();
+$productService = new ProductService();
 
 $authenticatedActions = ['updateUserProfile', 'getAllProducts', 'addProduct', 'getAllProductInstances', 'deleteSelectedProducts'];
 
@@ -42,17 +44,18 @@ switch ($data->action ?? '') {
         echo $userService->updateUserProfile($data);
         break;
     case 'getAllProducts':
-        echo $userService->getAllProducts();
+        echo $productService->getAllProducts();
         break;
     case 'addProduct':
-        echo $userService->addProduct($data);
+        echo $productService->addProduct($data);
         break;
     case 'getAllProductInstances':
-        echo $userService->getAllProductInstances();
+        echo $productService->getAllProductInstances();
         break;
     case 'deleteSelectedProducts':
-        echo $userService->deleteSelectedProducts($data);
+        echo $productService->deleteSelectedProducts($data);
         break;
+        
     default:
         echo json_encode(['status' => 'error', 'message' => 'Action not recognized or no action specified']);
         break;

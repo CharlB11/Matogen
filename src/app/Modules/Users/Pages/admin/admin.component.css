@@ -1,0 +1,107 @@
+/* Sets the width, height, and overflow properties for the table container */
+.admin-table-container {
+  width: 50%;
+  height: 300px;
+  overflow-y: auto;
+  margin: auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1); 
+}
+
+/* Styles the table to fill the container and collapse borders */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Styles the table header to be sticky and sets background color */
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: #3FC060; 
+  z-index: 1;
+}
+
+/* Styles table cells with padding, text alignment, and border */
+.table th, .table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: #162328; 
+  background-color: #ffffff; 
+}
+
+/* Hover effect for table rows */
+.table tr:hover {
+  background-color: #2a3b3f;
+}
+
+/* Styles the delete button in the table header */
+.header-delete-button {
+  background-color: transparent;
+  border: none;
+  color: currentColor;
+  cursor: pointer;
+  padding: 0;
+  font-weight: bold;
+}
+
+/* Hover effect for the delete button */
+.header-delete-button:hover {
+  color: red;
+}
+
+/* Styles the scrollbar for Webkit browsers */
+.admin-table-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.admin-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb {
+  background: #3FC060;
+  border-radius: 5px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb:hover {
+  background: #2eb84f;
+}
+
+/* Styles the scrollbar for Firefox */
+.admin-table-container {
+  scrollbar-width: thin;
+  scrollbar-color: #3FC060 #f1f1f1;
+}
+
+/* Styles the scrollbar for IE and Edge */
+.admin-table-container {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* Adds spacing at the bottom of the table */
+.product-table {
+  margin-bottom: 20px;
+}
+
+/* Creates a gap between the table and chart */
+.gap {
+  height: 70px;
+}
+
+/* Styles the chart to fill its container */
+.product-chart {
+  width: 100%;
+  height: 100px;
+}
+
+/* Styles the chart container */
+.chart-container {
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  width: 100%; 
+  height: 400px; 
+  padding: 20px;
+}

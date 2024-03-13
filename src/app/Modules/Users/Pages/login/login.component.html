@@ -1,0 +1,26 @@
+<!-- Container for the login form -->
+<div class="login-container">
+  <!-- Angular reactive form with formGroup directive -->
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <!-- Email input field -->
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+    <!-- Password input field -->
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password">
+    </div>
+    <!-- Error message display -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+    <!-- Login button, disabled if form is invalid -->
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+    <!-- Login footer with registration link -->
+    <div class="login-footer">
+      Not registered? <a routerLink="/register">Sign up</a>
+    </div>
+  </form>
+</div>

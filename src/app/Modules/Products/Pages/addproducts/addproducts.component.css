@@ -1,0 +1,93 @@
+/* Set global font family, background color, text color, and font weight for the entire body */
+body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #162328;
+    color: #3FC060;
+    font-weight: bold;
+  }
+  
+  /* Style the main container with overflow handling, width, margin, padding, background color, text color, border radius, box shadow, and font weight */
+  .container {
+    overflow: auto;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 50px;
+    background-color: #3FC060;
+    color: #162328;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+  }
+  
+  /* Style h2 headings with a specific font family, color, and font weight */
+  h2 {
+    font-family: 'Arial Black', Gadget, sans-serif;
+    color: #162328;
+    font-weight: bold;
+  }
+  
+  /* Style labels within form groups with a specific color and font weight */
+  .form-group label {
+    color: #162328;
+    font-weight: bold;
+  }
+  
+  /* Style select and input elements within form groups with border radius, text color, and background color */
+  .form-group select,
+  .form-group input {
+    border-radius: 4px;
+    color: #162328;
+    background-color: #ffffff;
+  }
+  
+  /* Style primary buttons with background color, border color, text color, and font weight */
+  .btn-primary {
+    background-color: #162328;
+    border-color: #3FC060;
+    color: #3FC060;
+    font-weight: bold;
+  }
+  
+  /* Style hover state of primary buttons with background color and text color */
+  .btn-primary:hover {
+    background-color: #ffffff;
+    color: #162328;
+  }
+  
+  /* Style h3 headings with mt-4 class, setting color, text alignment, margin bottom, and font weight */
+  h3.mt-4 {
+    color: #162328;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Style the product list container using CSS Grid for responsive layout */
+  .list-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  /* Style individual product items within the list group */
+  .list-group-item {
+    background-color: #f8f8f8;
+    color: #162328;
+    border: 1px solid #3FC060;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }

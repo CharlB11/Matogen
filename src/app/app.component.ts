@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
-import { AuthService } from './auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit {
   title = 'warehouse';
 
-  constructor(private authService: AuthService, private el: ElementRef) {}
+  constructor(private el: ElementRef) {}
 
   ngOnInit() {
     this.createMouseFollower();

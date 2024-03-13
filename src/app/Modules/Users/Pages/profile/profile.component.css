@@ -1,0 +1,115 @@
+/* Define custom CSS variables */
+:root {
+  --primary-color: #3FC060;
+  --secondary-color: #162328;
+}
+
+/* Style the main container */
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Helvetica', sans-serif;
+  color: var(--primary-color);
+}
+
+/* Style the heading */
+h2 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style the form */
+form {
+  display: grid;
+  grid-gap: 20px;
+}
+
+/* Style the labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Style the select and input fields */
+select, input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Helvetica', sans-serif;
+  color: var(--secondary-color);
+  background-color: #f8f8f8;
+}
+
+/* Style disabled select and input fields */
+select:disabled, input:disabled {
+  background-color: #f0f0f0;
+  color: #bbb;
+}
+
+/* Style the button */
+button {
+  width: 100%;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Helvetica', sans-serif;
+}
+
+/* Style the button on hover */
+button:hover {
+  background-color: #35ac53;
+}
+
+/* Style the disabled button */
+button:disabled {
+  background-color: #bbbbbb;
+}
+
+/* Style the error message */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+  
+  /* Style the current details section */
+  .current-details {
+    margin-bottom: 20px; 
+    color: #FFF; 
+  }
+  
+  /* Style the detail labels */
+  .detail-label {
+    font-weight: bold;
+    color: var(--primary-color); 
+  }
+
+  /* Style the current values */
+  .current-value {
+    color: var(--primary-color); 
+    font-weight: bold; 
+  }
+}
